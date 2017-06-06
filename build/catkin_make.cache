@@ -1,2 +1,2 @@
-my_r2d2
+keyboard_reader:my_r2d2
 -DCATKIN_DEVEL_PREFIX=/home/arsovska/RobTech/devel -DCMAKE_INSTALL_PREFIX=/home/arsovska/RobTech/install -G Unix Makefiles

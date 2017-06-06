@@ -1,0 +1,31 @@
+Instructions for running:
+
+Before running:
+To make the Python file executable use:
+ $cd RobTech/src/keyboard_reader/scripts
+ $chmod +x move_bot2.py
+
+Then:
+
+1. Run $roslaunch husky_gazebo husky_empty_world.launch (I couldn't run husky_playpen.launch on my laptop)
+
+2. In new Terminal $rosrun keyboard_reader move_bot2
+
+3. In new Terminal $rosrun keyboard_reader keyboard_event_publisher 
+
+Optional: In new Terminal rosrun rqt_graph rqt_graph - to  create a dynamic graph
+
+Explanation:
+
+I use the keyboard reader driver to detect weather a key is pressed.
+The node move_bot2 subscribes to keyboard's Key messages. When a key is pressed (a new message has arrived) the subsriber calls the callback function. 
+In the callback function at the beginning a flag State is set as False meaning the Husky is not moving.
+When a key is pressed State = True the Husky moves (linear.x = 1).
+When any key is pressed again State = False and the Husky stops (linear.x = 0).
+
+I publish message of type Twist on the topic husky_velocity_controller/cmd_vel
+(rostopic list gives multiple cmd_vel, so I used http://wiki.ros.org/husky_base where it says we should use this topic 'husky_velocity_controller/cmd_vel').
+So I publish data on that topic which enables me to move the Husky in Gazebo.
+
+
+

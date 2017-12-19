@@ -1,8 +1,0 @@
-prefix=/home/arsovska/RobTech/devel
-
-Name: my_r2d2
-Description: Description of my_r2d2
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/arsovska/RobTech/devel/lib 
-Requires: 
